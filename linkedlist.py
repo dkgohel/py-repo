@@ -83,6 +83,14 @@ class LinkedList:
         for data in data_list:
             self.insert_at_end(data)
 
+    def insert_after_value(self,data_after,data_after_insert):
+        itr=self.head
+        while itr:
+            if itr.data == data_after:
+                itr.next = Node(data_after_insert,itr.next)
+                break
+            itr=itr.next
+    
 
 l = LinkedList()
 l.insert_at_begining(5)
@@ -91,4 +99,6 @@ l.insert_at_end(9)
 l.insert_values([4,6,13,15])
 l.remove_at(4)
 l.insert_at(5,22)
+l.print()
+l.insert_after_value(4,69)
 l.print()
