@@ -8,6 +8,14 @@ class DoublyLinkedList:
     def __init__(self):
         self.head=None
     
+    def get_length(self):
+        count = 0
+        itr=self.head
+        while itr:
+            count+=1
+            itr=itr.next
+        return count
+
     def insert_at_begining(self,data):
         newNode=Node(data)
         newNode.next=self.head
@@ -29,6 +37,28 @@ class DoublyLinkedList:
         itr.next=newNode
         newNode.prev=itr
         return
+
+    def insert_at(self, index, data):
+        if index<0 or index>self.get_length():
+            raise Exception("Invalid Index")
+
+        if index==0:
+            self.insert_at_begining(data)
+            return
+
+        count = 0
+        itr = self.head
+        while itr:
+            if count == index - 1:
+                node = Node(data, itr.next)
+                node.next=itr.next
+                node.prev=itr
+                itr.next.prev=node
+                itr.next = node
+                break
+
+            itr = itr.next
+            count += 1
 
     def printForward(self):
         itr=self.head
@@ -62,4 +92,5 @@ dl.insert_at_end(21)
 dl.printForward()
 dl.insert_at_end(93)
 dl.printForward()
-dl.printBackward()
+dl.insert_at(3,100)
+dl.printForward()
