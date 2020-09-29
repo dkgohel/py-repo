@@ -85,12 +85,30 @@ class LinkedList:
 
     def insert_after_value(self,data_after,data_after_insert):
         itr=self.head
+        flag=False
         while itr:
             if itr.data == data_after:
+                flag=True
                 itr.next = Node(data_after_insert,itr.next)
                 break
             itr=itr.next
+        if flag==False:
+            print("Value does not exist in LinkedList")
     
+    def remove_first_occur(self,data):
+        itr=self.head
+        count=0
+        flag=False
+        while itr:
+            if itr.data==data:
+                flag=True
+                self.remove_at(count)
+                break
+            itr=itr.next
+            count+=1
+        if flag==False:
+            print("Value does not exist in LinkedList")
+
 
 l = LinkedList()
 l.insert_at_begining(5)
@@ -101,4 +119,8 @@ l.remove_at(4)
 l.insert_at(5,22)
 l.print()
 l.insert_after_value(4,69)
+l.print()
+l.insert_at_end(69)
+l.print()
+l.remove_first_occur(69)
 l.print()
