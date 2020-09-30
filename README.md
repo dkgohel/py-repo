@@ -1,2 +1,8 @@
 # py-repo
-Repository for Data structures in Python
+Repository which contains some data structure & algortihms programs and some sample programs using Python.
+
+# Table of Content
+1. Singly Linked List
+2. Doubly Linked List
+3. Armstrong Number Checker
+4. Rock Paper Scissor CLI game using Python
